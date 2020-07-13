@@ -1,0 +1,39 @@
+#include <iostream>
+
+std::string int_in_str(int num)
+{
+    if (!num) return "";
+    char lastNum = (char)(num % 10 + 48);
+    num /= 10;
+
+    return int_in_str(num) + lastNum;
+}
+
+
+char int_in_char(int num)
+{
+    if (!num) return NULL;
+
+    return (char)(num + 48);
+}
+
+int str_in_int(std::string str)
+{
+    int num = 0;
+    int temp;
+    for (int i = 0; i < str.length(); i++)
+    {
+        temp = ((int)str[i] - 48) * pow(10, str.length() - (i + 1));
+        num += temp;
+    }
+
+    return num;
+}
+
+int char_in_int(char ch)
+{
+    if (!ch) return NULL;
+
+    return (char)(ch - 48);
+}
+
